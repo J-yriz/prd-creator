@@ -113,4 +113,7 @@ See [`prompt.md`](./prompt.md) for the standalone version.
 
 ## License
 
-[MIT](./LICENSE) © 2026 Fajar Aziz Kurniawan
+[Non-Commercial Open License (NC-OSL) v1.0](./LICENSE) © 2026 Fajar Aziz Kurniawan.
+
+Open source: free to use, copy, modify, and distribute. **Commercial use is prohibited** —
+this project may not be sold or used to generate revenue.
