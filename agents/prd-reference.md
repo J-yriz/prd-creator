@@ -1,76 +1,76 @@
 # PRD — Project Requirements Document
 
 ## 1. Overview
-**Nama Proyek:** Universal Business Management Dashboard Template
+**Project Name:** Universal Business Management Dashboard Template
 
-Aplikasi ini adalah sebuah template *All-in-One* Dashboard berbasis web yang dirancang untuk membantu manajemen operasional berbagai jenis usaha (UMKM). Tujuan utamanya adalah menyediakan satu basis kode yang lengkap mencakup 5 pilar utama bisnis: Keuangan, HR, Inventaris, CRM, dan Kasir (POS).
+This application is an *All-in-One* web-based Dashboard template designed to help manage the operations of various types of businesses (SMEs). Its main goal is to provide a single complete codebase covering 5 core business pillars: Finance, HR, Inventory, CRM, and Point of Sale (POS).
 
-Masalah utama yang ingin diselesaikan adalah biaya dan waktu pengembangan yang tinggi untuk membuat sistem manajemen dari nol. Dengan template ini, pengembang atau pemilik bisnis dapat melakukan *clone* proyek, lalu mematikan fitur yang tidak diperlukan hanya dengan mengubah konfigurasi di kode (hardcoded `false`), sehingga aplikasi menjadi ringan dan sesuai kebutuhan spesifik tanpa perlu coding ulang yang rumit.
+The main problem it solves is the high cost and development time required to build a management system from scratch. With this template, developers or business owners can clone the project, then disable unneeded features simply by changing a configuration in the code (hardcoded `false`), making the application lightweight and tailored to specific needs without complex re-coding.
 
 ## 2. Requirements
-Berikut adalah persyaratan utama untuk pengembangan sistem ini:
+The following are the main requirements for developing this system:
 
-*   **Modularitas Tinggi:** Sistem harus dibangun sedemikian rupa sehingga setiap modul (misal: HR atau POS) independen. Jika satu modul dinonaktifkan via kodingan, UI dan logika modul tersebut harus benar-benar hilang dari tampilan pengguna.
-*   **Kemudahan Kustomisasi:** Konfigurasi fitur dilakukan melalui satu file konfigurasi pusat di dalam kode.
-*   **Aksesibilitas:** Login yang mudah menggunakan akun Google (OAuth).
-*   **Kontrol Akses:** Sistem izin (permission) yang membatasi akses pengguna berdasarkan modul (contoh: Kasir hanya bisa akses POS, Manajer bisa akses Keuangan).
-*   **Desain Modern:** Menggunakan komponen antarmuka yang bersih dan responsif.
-*   **Deployment Mandiri:** Siap untuk di-deploy di server pribadi (VPS).
+*   **High Modularity:** The system must be built so that each module (e.g., HR or POS) is independent. If a module is disabled via code, the UI and logic of that module must be completely removed from the user's view.
+*   **Easy Customization:** Feature configuration is done through a single central configuration file in the code.
+*   **Accessibility:** Easy login using a Google account (OAuth).
+*   **Access Control:** A permission system that limits user access based on modules (e.g., Cashier can only access POS, Manager can access Finance).
+*   **Modern Design:** Uses clean and responsive interface components.
+*   **Self-Hosted Deployment:** Ready to be deployed on a private server (VPS).
 
 ## 3. Core Features
-Fitur-fitur ini adalah inti dari template, yang nantinya bisa diaktifkan/dinonaktifkan:
+These features are the core of the template, which can later be enabled/disabled:
 
 1.  **Authentication & Authorization**
-    *   Login menggunakan Google (OAuth).
-    *   Manajemen User dan Role (Admin, Staff, Kasir, dll).
-    *   Pengaturan hak akses per modul.
+    *   Login using Google (OAuth).
+    *   User and Role management (Admin, Staff, Cashier, etc.).
+    *   Per-module access rights configuration.
 
-2.  **Point of Sale (POS) / Kasir**
-    *   Halaman transaksi penjualan yang cepat.
-    *   Pencetakan struk (digital/fisik).
-    *   Kalkulasi total dan kembalian otomatis.
+2.  **Point of Sale (POS) / Cashier**
+    *   Fast sales transaction page.
+    *   Receipt printing (digital/physical).
+    *   Automatic total and change calculation.
 
-3.  **Inventaris / Manajemen Stok**
-    *   Daftar produk dan kategori.
-    *   Pencatatan stok masuk (pembelian) dan stok keluar.
-    *   Peringatan stok menipis.
+3.  **Inventory / Stock Management**
+    *   Product and category list.
+    *   Stock-in (purchases) and stock-out recording.
+    *   Low-stock alerts.
 
-4.  **Akuntansi / Keuangan**
-    *   Pencatatan Pemasukan dan Pengeluaran (Expense).
-    *   Laporan Laba/Rugi sederhana.
-    *   Rekapitulasi transaksi harian/bulanan.
+4.  **Accounting / Finance**
+    *   Income and Expense recording.
+    *   Simple Profit/Loss report.
+    *   Daily/monthly transaction recap.
 
-5.  **HRM / Kepegawaian**
-    *   Database karyawan.
-    *   Manajemen posisi dan gaji dasar.
-    *   Pencatatan absensi sederhana.
+5.  **HRM / Personnel**
+    *   Employee database.
+    *   Position and base salary management.
+    *   Simple attendance tracking.
 
-6.  **CRM / Pelanggan**
-    *   Database pelanggan (Nama, No HP, Riwayat Belanja).
-    *   Pencatatan hutang/piutang pelanggan (jika ada).
+6.  **CRM / Customers**
+    *   Customer database (Name, Phone, Purchase History).
+    *   Customer debt/receivable tracking (if any).
 
 7.  **Global Config (Hardcoded)**
-    *   File khusus (misal: `features.config.js`) untuk men-set `true/false` pada modul-modul di atas.
+    *   A dedicated file (e.g., `features.config.js`) to set `true/false` on the modules above.
 
 ## 4. User Flow
-Alur ini menggambarkan dua perspektif: Developer (saat setup) dan End-User (saat penggunaan).
+This flow describes two perspectives: Developer (during setup) and End-User (during use).
 
-**A. Alur Setup (Developer/Admin IT):**
-1.  Clone repository proyek.
-2.  Buka file konfigurasi fitur.
-3.  Set fitur yang tidak dibutuhkan menjadi `false` (Contoh: Usaha Jasa tidak butuh Stok, maka `Inventory = false`).
-4.  Deploy aplikasi ke VPS.
+**A. Setup Flow (Developer/IT Admin):**
+1.  Clone the project repository.
+2.  Open the feature configuration file.
+3.  Set unneeded features to `false` (Example: a Service business does not need Stock, so `Inventory = false`).
+4.  Deploy the application to the VPS.
 
-**B. Alur Pengguna Harian (Contoh: Kasir):**
-1.  Buka website dashboard.
-2.  Login menggunakan akun Google.
-3.  Sistem mengecek modul apa yang aktif dan apa izin pengguna tersebut.
-4.  User masuk ke Dashboard (Menu yang muncul hanya yang diaktifkan, misal: POS).
-5.  User melakukan transaksi penjualan.
-6.  User Logout.
+**B. Daily User Flow (Example: Cashier):**
+1.  Open the website dashboard.
+2.  Login using a Google account.
+3.  The system checks which modules are active and what the user's permissions are.
+4.  The user enters the Dashboard (only enabled menus appear, e.g., POS).
+5.  The user performs a sales transaction.
+6.  The user logs out.
 
 ## 5. Architecture
-Sistem ini menggunakan arsitektur Client-Server standar di mana Frontend (Next.js) akan membaca konfigurasi fitur untuk merender menu, dan Backend (Node.js) melayani data dari MySQL.
+This system uses a standard Client-Server architecture where the Frontend (Next.js) reads the feature configuration to render menus, and the Backend (Node.js) serves data from MySQL.
 
 ```mermaid
 sequenceDiagram
@@ -80,67 +80,67 @@ sequenceDiagram
     participant BE as Backend (Node.js)
     participant DB as Database (MySQL)
 
-    Note over FE, C: Setup Awal (Hardcoded)
+    Note over FE, C: Initial Setup (Hardcoded)
 
-    U->>FE: Buka Aplikasi & Login (Google)
-    FE->>BE: Request Auth & Data User
-    BE->>DB: Validasi User
-    DB-->>BE: Data User & Role
-    BE-->>FE: Token Sesi
+    U->>FE: Open App & Login (Google)
+    FE->>BE: Request Auth & User Data
+    BE->>DB: Validate User
+    DB-->>BE: User & Role Data
+    BE-->>FE: Session Token
 
-    FE->>C: Cek Konfigurasi (Fitur mana yang True?)
-    C-->>FE: List Fitur Aktif (Misal: POS & Inventory)
+    FE->>C: Check Configuration (Which features are True?)
+    C-->>FE: Active Feature List (e.g., POS & Inventory)
 
-    FE->>U: Tampilkan Dashboard (Hanya Menu Aktif)
+    FE->>U: Display Dashboard (Only Active Menus)
 
-    U->>FE: Akses Halaman POS
-    FE->>BE: Request Data Produk
-    BE->>DB: Query Tabel Produk
-    DB-->>BE: Hasil Query
-    BE-->>FE: JSON Data Produk
-    FE->>U: Tampilan Kasir Siap
+    U->>FE: Access POS Page
+    FE->>BE: Request Product Data
+    BE->>DB: Query Products Table
+    DB-->>BE: Query Results
+    BE-->>FE: Product Data JSON
+    FE->>U: Cashier View Ready
 ```
 
 ## 6. Database Schema
-Desain database relasional untuk mendukung seluruh modul. Tabel akan tetap dibuat semua saat inisialisasi, namun mungkin tidak terisi jika fiturnya dimatikan.
+Relational database design to support all modules. All tables are still created during initialization, but may remain empty if a feature is disabled.
 
-**Tabel Utama:**
+**Main Tables:**
 
-1.  **users**: Menyimpan data pengguna aplikasi.
+1.  **users**: Stores application user data.
     *   `id` (INT): Primary Key.
-    *   `email` (VARCHAR): Email untuk Google Auth.
-    *   `role` (VARCHAR): Peran (Admin, Staff, dll).
-    *   `permissions` (JSON): Izin akses modul spesifik.
+    *   `email` (VARCHAR): Email for Google Auth.
+    *   `role` (VARCHAR): Role (Admin, Staff, etc.).
+    *   `permissions` (JSON): Module-specific access permissions.
 
-2.  **products** (Modul Inventaris & POS): Data barang dagangan.
+2.  **products** (Inventory & POS Module): Merchandise data.
     *   `id` (INT): Primary Key.
-    *   `name` (VARCHAR): Nama barang.
-    *   `price` (DECIMAL): Harga jual.
-    *   `stock_qty` (INT): Jumlah stok saat ini.
+    *   `name` (VARCHAR): Product name.
+    *   `price` (DECIMAL): Selling price.
+    *   `stock_qty` (INT): Current stock quantity.
 
-3.  **transactions** (Modul POS & Keuangan): Header transaksi.
+3.  **transactions** (POS & Finance Module): Transaction header.
     *   `id` (INT): Primary Key.
-    *   `type` (ENUM): 'INCOME' (Penjualan), 'EXPENSE' (Pengeluaran).
-    *   `total_amount` (DECIMAL): Total nilai.
-    *   `date` (DATETIME): Waktu transaksi.
-    *   `customer_id` (INT): Foreign Key ke tabel customers.
+    *   `type` (ENUM): 'INCOME' (Sales), 'EXPENSE' (Spending).
+    *   `total_amount` (DECIMAL): Total value.
+    *   `date` (DATETIME): Transaction time.
+    *   `customer_id` (INT): Foreign Key to the customers table.
 
-4.  **transaction_items** (Modul POS): Detail barang dalam transaksi.
+4.  **transaction_items** (POS Module): Item details within a transaction.
     *   `id` (INT): Primary Key.
-    *   `transaction_id` (INT): Relasi ke transaksi.
-    *   `product_id` (INT): Relasi ke produk.
-    *   `qty` (INT): Jumlah barang dibeli.
+    *   `transaction_id` (INT): Relation to the transaction.
+    *   `product_id` (INT): Relation to the product.
+    *   `qty` (INT): Quantity purchased.
 
-5.  **customers** (Modul CRM): Data pelanggan.
+5.  **customers** (CRM Module): Customer data.
     *   `id` (INT): Primary Key.
-    *   `name` (VARCHAR): Nama pelanggan.
-    *   `phone` (VARCHAR): Kontak.
+    *   `name` (VARCHAR): Customer name.
+    *   `phone` (VARCHAR): Contact.
 
-6.  **employees** (Modul HRM): Data pegawai detail.
+6.  **employees** (HRM Module): Detailed employee data.
     *   `id` (INT): Primary Key.
-    *   `full_name` (VARCHAR): Nama lengkap.
-    *   `position` (VARCHAR): Jabatan.
-    *   `salary` (DECIMAL): Gaji pokok.
+    *   `full_name` (VARCHAR): Full name.
+    *   `position` (VARCHAR): Job position.
+    *   `salary` (DECIMAL): Base salary.
 
 ```mermaid
 erDiagram
@@ -180,12 +180,12 @@ erDiagram
 ```
 
 ## 7. Tech Stack
-Rekomendasi teknologi berdasarkan preferensi user dan standar industri saat ini:
+Technology recommendations based on user preferences and current industry standards:
 
-*   **Frontend Framework:** **Next.js** (React) - Untuk performa tinggi dan rendering yang fleksibel.
-*   **UI Library:** **Shadcn/ui** - Komponen antarmuka yang modern, mudah dikustomisasi, dan *copy-paste friendly*.
-*   **Backend Runtime:** **Node.js** - Menjalankan logika server. Bisa menggunakan framework ringan seperti **Express.js** atau memanfaatkan API Routes bawaan Next.js jika ingin arsitektur yang lebih simpel (Monolith).
-*   **Database:** **MySQL** - Database relasional yang stabil dan umum digunakan di VPS.
-*   **ORM (Object-Relational Mapping):** **Prisma** atau **Drizzle ORM** - Untuk mempermudah komunikasi antara Node.js dan MySQL serta manajemen skema database.
-*   **Authentication:** **NextAuth.js (Auth.js)** - Solusi standar untuk integrasi Google OAuth di Next.js.
-*   **Deployment:** **VPS (Virtual Private Server)** - Menggunakan PM2 untuk manajemen proses Node.js dan Nginx sebagai web server/reverse proxy.
+*   **Frontend Framework:** **Next.js** (React) - For high performance and flexible rendering.
+*   **UI Library:** **Shadcn/ui** - Modern interface components, easy to customize, and copy-paste friendly.
+*   **Backend Runtime:** **Node.js** - Runs the server logic. Can use a lightweight framework such as **Express.js** or leverage Next.js built-in API Routes if a simpler (Monolith) architecture is preferred.
+*   **Database:** **MySQL** - A stable relational database commonly used on VPS.
+*   **ORM (Object-Relational Mapping):** **Prisma** or **Drizzle ORM** - To simplify communication between Node.js and MySQL and manage the database schema.
+*   **Authentication:** **NextAuth.js (Auth.js)** - The standard solution for Google OAuth integration in Next.js.
+*   **Deployment:** **VPS (Virtual Private Server)** - Using PM2 for Node.js process management and Nginx as the web server/reverse proxy.

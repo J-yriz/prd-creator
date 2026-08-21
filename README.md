@@ -111,9 +111,5 @@ See [`prompt.md`](./prompt.md) for the standalone version.
 - **Output folder:** edit the `FILE OUTPUT FLOW` section (default: `requirement-prd/`).
 - **Model:** the agent uses your default model — add a `model:` line to the frontmatter to pin one.
 
-## License
-
-[Non-Commercial Open License (NC-OSL) v1.0](./LICENSE) © 2026 Fajar Aziz Kurniawan.
-
 Open source: free to use, copy, modify, and distribute. **Commercial use is prohibited** —
 this project may not be sold or used to generate revenue.
